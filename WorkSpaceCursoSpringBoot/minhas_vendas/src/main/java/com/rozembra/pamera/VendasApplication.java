@@ -13,27 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class VendasApplication {
 
-	@Value("${application.name}")
-
-    private String applicationName;
-
-	@Cachorro
-	private Animal animal;
-	
-	@Bean(name = "executarAnimal")
-	public CommandLineRunner executar(){
-        return args -> {
-            this.animal.fazerBarulho();
-        };
-    }
-
-
-	@GetMapping("/hello")
-    public String helloWorld(){
-        return applicationName;
-    }
-
-    public static void main(String[] args) {
+	    public static void main(String[] args) {
         SpringApplication.run(VendasApplication.class, args);
     }
 
