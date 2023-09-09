@@ -20,7 +20,7 @@ public class VendasApplication {
 	@Bean
 	public CommandLineRunner init(@Autowired Clientes clientes, @Autowired Pedidos pedidos) {
 		return args -> {
-            System.out.println("Salvando clientes");
+            
             Cliente fulano = new Cliente("Fulano");
             clientes.save(fulano);
             
