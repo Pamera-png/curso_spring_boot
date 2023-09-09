@@ -21,7 +21,9 @@ public class Pedido {
 	
 	@Column(name = "data_pedido")
 	private LocalDate dataPedido;
-	
+
+	//precision é a quantidade total de digitos
+	//scale é a quantidade de casas decimais depois da ,
 	@Column(name = "total", precision = 20, scale = 2)
 	private BigDecimal total;
 
@@ -53,6 +55,15 @@ public class Pedido {
 	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
+
+	@Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", dataPedido=" + dataPedido +
+                ", total=" + total +
+                '}';
+    }
 
 
 }

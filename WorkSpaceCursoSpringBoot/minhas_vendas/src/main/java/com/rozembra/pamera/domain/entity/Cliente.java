@@ -20,6 +20,7 @@ public class Cliente {
 	private String nome;
 
 	//mapeia uma collection para pedido
+	//o FetchType.LAZY é uma propriedade que trás os clientes junto com seus pedidos, mas também pode trazer somente os clientes
 	@OneToMany( mappedBy = "cliente" , fetch = FetchType.LAZY )
     private Set<Pedido> pedidos;
 
