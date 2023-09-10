@@ -1,7 +1,7 @@
 package com.rozembra.pamera;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,12 +10,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.rozembra.pamera.domain.entity.Cliente;
-import com.rozembra.pamera.domain.entity.Pedido;
+
 import com.rozembra.pamera.domain.repositorios.Clientes;
-import com.rozembra.pamera.domain.repositorios.Pedidos;
+
 
 @SpringBootApplication
 public class VendasApplication {
+
+	@Bean
+    public CommandLineRunner commandLineRunner(@Autowired Clientes clientes){
+        return args -> {
+            Cliente c = new Cliente(null, "Pamera");
+            clientes.save(c);
+        };
+    }
 
 
 	    public static void main(String[] args) {
