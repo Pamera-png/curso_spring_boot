@@ -1,7 +1,17 @@
 package com.rozembra.pamera.domain.entity;
 
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 
@@ -21,12 +31,21 @@ public class Cliente {
 
 	//mapeia uma collection para pedido
 	//o FetchType.LAZY é uma propriedade que trás os clientes junto com seus pedidos, mas também pode trazer somente os clientes
+	@JsonIgnore
 	@OneToMany( mappedBy = "cliente" , fetch = FetchType.LAZY )
     private Set<Pedido> pedidos;
 
 	public Cliente() {
 		
 	}
+
+    public Set<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 
 	public Cliente(Integer id, String nome) {
         this.id = id;
@@ -50,15 +69,7 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-	@Override
+		@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nome=" + nome + "]";
 	}
