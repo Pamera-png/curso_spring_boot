@@ -29,6 +29,9 @@ public class Cliente {
 	@Column(name="nome", length = 100)
 	private String nome;
 
+	@Column(name = "cpf", length = 11)
+    private String cpf;
+
 	//mapeia uma collection para pedido
 	//o FetchType.LAZY é uma propriedade que trás os clientes junto com seus pedidos, mas também pode trazer somente os clientes
 	@JsonIgnore
@@ -68,6 +71,14 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
 		@Override
 	public String toString() {
